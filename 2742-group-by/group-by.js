@@ -7,15 +7,10 @@ Array.prototype.groupBy = function(fn) {
     let result = {};
     for(let i = 0; i<this.length; i++){
         let key = fn(arr[i])
-        if(result.hasOwnProperty(key)){
-            //append the 'i'
-            result[key].push(arr[i]); 
-        }
-        else{
-            //need to add the property
+        if(!result[key]){
             result[key] = []
-            result[key].push(arr[i])
         }
+        result[key].push(arr[i])
     }
     return result
 };
