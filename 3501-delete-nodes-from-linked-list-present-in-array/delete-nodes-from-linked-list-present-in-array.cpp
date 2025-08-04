@@ -22,19 +22,19 @@ public:
 
         ListNode* d = new ListNode();
         ListNode* c = d;
-        ListNode* p = nullptr;
+        //ListNode* p = nullptr;
         while(head != nullptr){
-            if(max < head->val || present[head->val]){
+            if(present.size() <= head->val || present[head->val]){
                 //cout<<head->val<<" "<<present[head->val]<<endl;
                 c->next = head;
                 c = c->next;
-                p = c;
+                //p = c;
             }
 
             head = head->next;
         }
-        c = c->next;
-        if(c!= nullptr && !present[c->val]) p->next = nullptr;
+        c->next = nullptr;
+        //if(c!= nullptr && !present[c->val]) p->next = nullptr;
         d = d->next;
         return d;
     }
